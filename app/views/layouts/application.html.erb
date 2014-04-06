@@ -9,9 +9,20 @@
 </head>
 <body>
 
-<%= render 'layouts/header' %>​
-
-<%= yield %>
+  <%= render 'layouts/header' %>​
+  <div class="container">
+    <section id="content">
+      <%= yield %>
+    </section>
+    <section id="sidebar">
+      <%= yield :sidebar %>
+      <section id="récemment">
+        <header><h1 class="ir" id="recent">Récemment</h1></header>
+        <%= render partial: 'layouts/recent' %>
+      </section>
+    </section>
+  </div>
+  <%= render 'layouts/footer' %>
 
 </body>
 </html>
