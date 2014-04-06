@@ -1,7 +1,8 @@
 %header#page_header{:role => "banner"}
   %h1#titre_header Le tableau de bord du SI de l'Etat
-  %nav#utility{:role => "navigation"}
-    Vous êtes connecté en tant que <strong>Sam Spade</strong>
-    = link_to "[Votre compte]", "#", id: "lien" |
-    = link_to "[Déconnexion]", "#", id: "lien"
+  -if user_signed_in?
+    %nav#utility{:role => "navigation"}
+      Vous êtes connecté en tant que <strong>#{current_user.email}</strong>
+      = link_to "[Votre compte]", "#", id: "lien" |
+      = link_to "[Déconnexion]", "#", id: "lien"
   = link_to(image_tag("logo.jpg",alt: "SGMAP",id: "logo"),root_url,title: "DISIC")
